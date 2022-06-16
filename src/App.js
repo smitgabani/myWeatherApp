@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    if (
+      process.env.REACT_APP_API_KEY_APPID === undefined ||
+      process.env.REACT_APP_API_KEY_UNSPLASH === undefined
+    ) {
+      return (
+        <h4>
+          Please add .env and add follow REACT_APP_API_KEY_APPID &
+          REACT_APP_API_KEY_UNSPLASH in the .env file
+        </h4>
+      );
+    }  else {
+      return (
+        <div className="App">
+          <h4>The apis are configured</h4>
+        </div>
+      )
+    }
 }
 
 export default App;
